@@ -1,0 +1,384 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  input[type="number"].appearance-none::-webkit-inner-spin-button,
+  input[type="number"].appearance-none::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+  }
+  // input[type="number"].appearance-none {
+  //   -moz-appearance: textfield !important;
+  // }
+}
+
+input[type="checkbox"] {
+  /* Hide the default checkbox */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  @apply border-2 border-desc rounded-[4px] size-5 cursor-pointer;
+
+  &:checked {
+    @apply bg-primary border-primary relative;
+
+    &::after {
+      content: "\2713"; /* Unicode for check mark */
+      color: white;
+      font-size: 18px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-white;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-md bg-primary bg-opacity-50;
+}
+
+.hide-scrollbar {
+  &::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+}
+
+/* Outfit - Black */
+@font-face {
+  font-family: "Outfit";
+  src: url("../fonts/Outfit/static/Outfit-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Outfit - Bold */
+@font-face {
+  font-family: "Outfit";
+  src: url("../fonts/Outfit/static/Outfit-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Outfit - ExtraBold */
+@font-face {
+  font-family: "Outfit";
+  src: url("../fonts/Outfit/static/Outfit-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Outfit - ExtraLight */
+@font-face {
+  font-family: "Outfit";
+  src: url("../fonts/Outfit/static/Outfit-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* Outfit - Light */
+@font-face {
+  font-family: "Outfit";
+  src: url("../fonts/Outfit/static/Outfit-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Outfit - Medium */
+@font-face {
+  font-family: "Outfit";
+  src: url("../fonts/Outfit/static/Outfit-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Outfit - Regular */
+@font-face {
+  font-family: "Outfit";
+  src: url("../fonts/Outfit/static/Outfit-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Outfit - SemiBold */
+@font-face {
+  font-family: "Outfit";
+  src: url("../fonts/Outfit/static/Outfit-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Outfit - Thin */
+@font-face {
+  font-family: "Outfit";
+  src: url("../fonts/Outfit/static/Outfit-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+/* Outfit - Variable Font */
+@font-face {
+  font-family: "Outfit";
+  src: url("../fonts/Outfit/Outfit-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+//
+@font-face {
+  font-family: "Cairo";
+  src: url("../fonts/Cairo/static/Cairo-Black.ttf") format("truetype");
+  font-weight: 900; /* Bold weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("../fonts/Cairo/static/Cairo-Bold.ttf") format("truetype");
+  font-weight: 700; /* Bold weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("../fonts/Cairo/static/Cairo-ExtraBold.ttf") format("truetype");
+  font-weight: 800; /* Extra Bold weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("../fonts/Cairo/static/Cairo-ExtraLight.ttf") format("truetype");
+  font-weight: 200; /* Extra Light weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("../fonts/Cairo/static/Cairo-Light.ttf") format("truetype");
+  font-weight: 300; /* Light weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("../fonts/Cairo/static/Cairo-Medium.ttf") format("truetype");
+  font-weight: 500; /* Medium weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("../fonts/Cairo/static/Cairo-Regular.ttf") format("truetype");
+  font-weight: 400; /* Regular weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("../fonts/Cairo/static/Cairo-SemiBold.ttf") format("truetype");
+  font-weight: 600; /* Semi Bold weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("../fonts/Cairo/Cairo-VariableFont_slnt,wght.ttf") format("truetype");
+  font-weight: 100 900; /* Variable weight */
+  font-style: normal;
+}
+
+//
+body {
+  font-family: "Outfit", "Cairo";
+  background-color: #f7f8fb;
+  color: #3b4b5e;
+}
+
+body::selection * {
+  @apply bg-primary text-white;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.1s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+//
+.translate-enter-active,
+.translate-leave-active {
+  transition: all 0.2s ease;
+}
+
+[dir="ltr"] {
+  .translate-enter-from,
+  .translate-leave-to {
+    transform: translateX(-280px);
+  }
+}
+[dir="rtl"] {
+  .translate-enter-from,
+  .translate-leave-to {
+    transform: translateX(280px);
+  }
+}
+//
+.base-btn {
+  @apply flex h-[46px] w-full min-w-[135px] items-center justify-center rounded-md border border-primary bg-primary px-3 text-white transition-all hover:bg-transparent hover:text-primary disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 disabled:text-white disabled:dark:border-gray-800 disabled:dark:bg-gray-700;
+}
+
+.base-btn-reverse {
+  @apply flex h-[46px] w-full min-w-[135px] items-center justify-center rounded-md border border-primary hover:bg-primary bg-transparent px-3 text-primary transition-all hover:bg-opacity-100 hover:text-white disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 disabled:text-white disabled:dark:border-gray-800 disabled:dark:bg-gray-700;
+}
+
+.input-wrapper {
+  @apply relative;
+  label {
+    @apply absolute top-1 z-10 px-3 text-sm line-clamp-1 text-desc;
+  }
+  input,
+  textarea,
+  button[aria-haspopup="listbox"] {
+    @apply h-14 border-[#777777] border-opacity-40 rounded-md px-3 pt-4 w-full focus:outline-none text-start border resize-none;
+  }
+  textarea {
+    height: 80px !important;
+  }
+
+  .dp__input_icon {
+    @apply hidden;
+  }
+  ul {
+    @apply absolute bg-white border w-full rounded-md z-[99];
+    li {
+      @apply py-1 px-2 cursor-pointer border-b;
+    }
+  }
+}
+
+.input-phone-wrapper {
+  @apply relative h-14;
+  input {
+    @apply h-14 border-[#777777] border-opacity-40 border-s-0 rounded-e-md pe-3 w-full focus:outline-none text-start border;
+  }
+  button[aria-haspopup="listbox"] {
+    @apply h-14 border-[#777777] border-opacity-40 border-e-0 rounded-s-md w-[80px] focus:outline-none text-start border flex items-center justify-center;
+  }
+  ul {
+    @apply absolute bg-white border w-[150px] rounded-md z-[99];
+    li {
+      @apply py-1 px-2 cursor-pointer border-b;
+    }
+  }
+}
+
+.input-file-wrapper {
+  @apply relative h-14 border border-[#777777] border-opacity-40 rounded-md px-3 w-full flex items-center;
+  label {
+    @apply top-2 bottom-2 end-2 w-[112px] absolute h-[auto] cursor-pointer;
+  }
+  button[class="xmark"] {
+    @apply absolute top-1/2 end-5 -translate-y-1/2;
+  }
+}
+
+.filter-input-wrapper {
+  @apply relative h-14;
+  label {
+    @apply absolute top-1 z-10 px-3 text-sm line-clamp-1;
+  }
+  input,
+  button[aria-haspopup="listbox"] {
+    @apply h-14 border-[#777777] rounded-md px-3 pt-4 w-full focus:outline-none text-start border;
+  }
+  .dp__input_icon {
+    @apply hidden;
+  }
+  ul {
+    @apply absolute bg-white border w-full rounded-md z-[99];
+    li {
+      @apply py-1 px-2 cursor-pointer border-b;
+    }
+  }
+}
+
+.swiper-pagination-bullet {
+  background: #fff !important;
+}
+
+.label-item-checkbox {
+  @apply cursor-pointer flex items-center justify-center size-6 border border-black border-opacity-50 rounded-full absolute z-10 bg-white -top-2 -end-2;
+
+  span {
+    @apply flex size-4 bg-primary rounded-full;
+  }
+}
+
+.Pagination {
+  @apply justify-center gap-4;
+  .PaginationControl {
+    .Control {
+      fill: #12a2d9 !important;
+      cursor: not-allowed !important;
+      opacity: 0.5;
+      &.Control-active {
+        opacity: 1;
+        fill: #12a2d9 !important;
+        cursor: pointer !important;
+        &:hover {
+          fill: #12a2d9 !important;
+        }
+      }
+    }
+  }
+  .Page {
+    @apply border-desc size-[33px] border text-base font-semibold transition-all;
+    font-family: "Outfit";
+    &:hover,
+    &.Page-active {
+      @apply size-[33px] border border-primary;
+      background-color: #12a2d9 !important;
+      color: #fff !important;
+    }
+  }
+}
+
+.Rate button.Rate__star svg {
+  @apply size-5;
+}
+.Rate .Rate__star.filled {
+  color: #ffc107;
+}
+.Rate .Rate__star.hover {
+  color: #ffc107;
+}
+
+.font-revert {
+  * {
+    box-sizing: border-box;
+    font-size: revert;
+    font-weight: revert;
+    font-family: sans-serif;
+    margin: revert;
+  }
+  ul {
+    padding-inline-start: 40px;
+    list-style: revert;
+  }
+}
